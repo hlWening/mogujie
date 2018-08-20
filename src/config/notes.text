@@ -1,0 +1,8 @@
+1、数据请求的方法一般写在created中，涉及到获取dom元素$el的方法则写在mounted中，因为先created创建组件，后mounted挂载在dom下
+
+2、vue的双向绑定原理：参考网站-https://segmentfault.com/a/1190000006599500，主要是通过数据劫持的方式来做数据绑定的，其中最核心的方法是通过Object.defineProperty()来实现对属性的劫持
+
+3、当ref属性在子组件标签上时：
+	this.$refs.ref属性值返回的是一个vue实例对象，可直接调用子组件methods内的方法（如：this.$refs.ref属性值.子组件方法名(可根据需要传参)）；this.$refs.ref属性值.$el返回的才是dom元素
+   当ref属性不在子组件标签上时：
+   	this.$refs.ref属性值则直接返回dom元素
